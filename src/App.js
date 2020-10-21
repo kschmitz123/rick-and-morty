@@ -24,6 +24,8 @@ function App() {
       createCharacter({
         name: character.name,
         imgSrc: character.image,
+        status: character.status,
+        species: character.species,
       })
     );
     // }

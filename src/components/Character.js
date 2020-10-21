@@ -1,10 +1,18 @@
 import "../../src/app.css";
 import { createElement } from "../utils/elements";
 
-function createCharacter({ name, imgSrc }) {
-  const title = createElement("div", {
+function createCharacter({ name, imgSrc, status, species }) {
+  const title = createElement("p", {
     className: "character__name",
     innerText: name,
+  });
+  const lifestatus = createElement("p", {
+    className: "character__status",
+    innerText: status,
+  });
+  const type = createElement("p", {
+    className: "character__origin",
+    innerText: species,
   });
 
   const avatar = createElement("img", {
@@ -15,7 +23,7 @@ function createCharacter({ name, imgSrc }) {
 
   const characterElement = createElement("div", {
     className: "character__card",
-    children: [title, avatar],
+    children: [title, lifestatus, type, avatar],
   });
   return characterElement;
 }
