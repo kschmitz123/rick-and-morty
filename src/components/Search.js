@@ -3,13 +3,13 @@ import "./search.css";
 
 function Search({ onchange }) {
   const input = createElement("input", {
-    className: "searchbar",
     placeholder: "Search character",
   });
   const button = createElement("button", {
     innerText: "🔍",
   });
   const container = createElement("form", {
+    className: "searchbar",
     children: [input, button],
     onsubmit: (event) => {
       event.preventDefault();
