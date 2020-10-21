@@ -17,9 +17,9 @@ function App() {
   // }
   // console.log(getRandomNumber(1, 671));
 
-  async function loadCharacters() {
+  async function loadCharacters(name) {
     // for (let i = 1; i <= 10; i++) {
-    const characters = await getAllCharacters();
+    const characters = await getAllCharacters(name);
     const characterElements = characters.map((character) =>
       createCharacter({
         name: character.name,
@@ -29,10 +29,17 @@ function App() {
       })
     );
     // }
+    main.innerHTML = "";
     main.append(...characterElements);
   }
+  const searchBar = createElement("input", {
+    onkeydown: (event) => loadCharacters(event.target.value),
+  });
+
   loadCharacters();
-  const container = createElement("div", { children: [header, main] });
+  const container = createElement("div", {
+    children: [header, searchBar, main],
+  });
   return container;
 }
 
