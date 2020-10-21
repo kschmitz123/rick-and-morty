@@ -18,7 +18,7 @@ function App() {
   });
 
   async function getCharacters() {
-    const character = await getCharacterByID(3);
+    const character = await getCharacterByID(4);
     main.append(
       createCharacter({
         name: character.name,
