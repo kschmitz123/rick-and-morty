@@ -7,24 +7,25 @@ import { getCharacterByID } from "./utils/api";
 function App() {
   const header = Header();
 
-  const character = createCharacter({
-    name: "Rick Sanchez",
-    imgSrc: "https://rickandmortyapi.com/api/character/avatar/1.jpeg",
-  });
+  // const character = createCharacter({
+  //   name: "Rick Sanchez",
+  //   imgSrc: "https://rickandmortyapi.com/api/character/avatar/1.jpeg",
+  // });
 
   const main = createElement("main", {
     className: "main",
-    children: [character],
   });
 
   async function getCharacters() {
-    const character = await getCharacterByID(4);
-    main.append(
-      createCharacter({
-        name: character.name,
-        imgSrc: character.image,
-      })
-    );
+    for (let i = 1; i <= 10; i++) {
+      const character = await getCharacterByID(i);
+      main.append(
+        createCharacter({
+          name: character.name,
+          imgSrc: character.image,
+        })
+      );
+    }
   }
   getCharacters();
   const container = createElement("div", { children: [header, main] });
