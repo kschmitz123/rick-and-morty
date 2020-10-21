@@ -1,4 +1,4 @@
-import "../../src/app.css";
+import "./character.css";
 import { createElement } from "../utils/elements";
 
 function createCharacter({ name, imgSrc, status, species }) {
@@ -20,11 +20,23 @@ function createCharacter({ name, imgSrc, status, species }) {
     src: imgSrc,
     alt: name,
   });
-
-  const characterElement = createElement("div", {
-    className: "character__card",
-    children: [title, lifestatus, type, avatar],
+  const flipcardFront = createElement("div", {
+    className: "flipcard-front",
+    children: [avatar],
   });
-  return characterElement;
+  const flipcardBack = createElement("div", {
+    className: "flipcard-back",
+    children: [title, lifestatus, type],
+  });
+  const flipcardInner = createElement("div", {
+    className: "flipcard-inner",
+    children: [flipcardFront, flipcardBack],
+  });
+
+  const flipcard = createElement("div", {
+    className: "flipcard",
+    children: [flipcardInner],
+  });
+  return flipcard;
 }
 export default createCharacter;
