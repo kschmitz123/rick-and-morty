@@ -4,15 +4,15 @@ import { createElement } from "../utils/elements";
 function createCharacter({ name, imgSrc, status, species }) {
   const title = createElement("p", {
     className: "character__name",
-    innerText: name,
+    innerText: "Name: " + name,
   });
   const lifestatus = createElement("p", {
     className: "character__status",
-    innerText: status,
+    innerText: "Status: " + status,
   });
   const type = createElement("p", {
     className: "character__origin",
-    innerText: species,
+    innerText: "Species: " + species,
   });
 
   const avatar = createElement("img", {
