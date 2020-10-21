@@ -26,6 +26,8 @@ function App() {
     main.append(...characterElements);
   }
   const searchBar = createElement("input", {
+    className: "searchbar",
+    placeholder: "Search character",
     onkeydown: (event) => loadCharacters(event.target.value),
   });
 
