@@ -12,13 +12,7 @@ function App() {
     className: "main",
   });
 
-  // function getRandomNumber(min, max) {
-  //   return Math.floor(Math.random() * (max - min) + min);
-  // }
-  // console.log(getRandomNumber(1, 671));
-
   async function loadCharacters(name) {
-    // for (let i = 1; i <= 10; i++) {
     const characters = await getAllCharacters(name);
     const characterElements = characters.map((character) =>
       createCharacter({
@@ -28,7 +22,6 @@ function App() {
         species: character.species,
       })
     );
-    // }
     main.innerHTML = "";
     main.append(...characterElements);
   }
