@@ -13,6 +13,7 @@ function App() {
   });
 
   const main = createElement("main", {
+    className: "main",
     children: [character],
   });
 

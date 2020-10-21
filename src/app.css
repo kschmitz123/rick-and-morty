@@ -10,5 +10,20 @@ html {
 
 body {
   margin: 0;
-  background: darkslategray;
+}
+.main {
+  display: flex;
+  flex-wrap: wrap;
+}
+.character__card {
+  border: 1px solid black;
+  background-color: burlywood;
+  border-radius: 15px;
+}
+.character__name {
+  font-size: 2rem;
+  text-align: center;
+}
+.character__img {
+  border-radius: 15px;
 }
