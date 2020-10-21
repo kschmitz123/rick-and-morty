@@ -2,6 +2,7 @@ import "./app.css";
 import Header from "./components/Header";
 import { createElement } from "./utils/elements";
 import createCharacter from "./components/Character";
+import { getCharacterByID } from "./utils/api";
 
 function App() {
   const header = Header();
@@ -15,6 +16,16 @@ function App() {
     children: [character],
   });
 
+  async function getCharacters() {
+    const character = await getCharacterByID(3);
+    main.append(
+      createCharacter({
+        name: character.name,
+        imgSrc: character.image,
+      })
+    );
+  }
+  getCharacters();
   const container = createElement("div", { children: [header, main] });
   return container;
 }
