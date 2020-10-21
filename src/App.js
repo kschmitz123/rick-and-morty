@@ -4,6 +4,7 @@ import { createElement } from "./utils/elements";
 import createCharacter from "./components/Character";
 // import { getCharacterByID } from "./utils/api";
 import { getAllCharacters } from "./utils/api";
+import Search from "./components/Search";
 
 function App() {
   const header = Header();
@@ -25,10 +26,9 @@ function App() {
     main.innerHTML = "";
     main.append(...characterElements);
   }
-  const searchBar = createElement("input", {
-    className: "searchbar",
-    placeholder: "Search character",
-    onchange: (event) => loadCharacters(event.target.value),
+
+  const searchBar = Search({
+    onchange: (value) => loadCharacters(value),
   });
 
   loadCharacters();

@@ -13,10 +13,3 @@ html {
 body {
   margin: 0;
 }
-.searchbar {
-  height: 2rem;
-  margin: 10px 0;
-  display: block;
-  margin-right: auto;
-  margin-left: auto;
-}
