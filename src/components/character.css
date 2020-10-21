@@ -46,7 +46,15 @@
   font-size: 1.5rem;
   transform: rotateY(180deg);
 }
-
+.flipcard-back > p {
+  margin: 0;
+}
 .character__name {
   font-size: 1.7rem;
+  border-bottom: black 1px solid;
+  font-weight: bold;
+}
+.character__type,
+.character__status {
+  color: purple;
 }

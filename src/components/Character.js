@@ -7,12 +7,19 @@ function createCharacter({ name, imgSrc, status, species }) {
     innerText: "Name: " + name,
   });
   const lifestatus = createElement("p", {
-    className: "character__status",
-    innerText: "Status: " + status,
+    innerText: status,
   });
   const type = createElement("p", {
-    className: "character__origin",
-    innerText: "Species: " + species,
+    innerText: species,
+  });
+
+  const lifestatusDef = createElement("p", {
+    className: "character__status",
+    innerText: "Status: ",
+  });
+  const typeDef = createElement("p", {
+    className: "character__type",
+    innerText: "Species: ",
   });
 
   const avatar = createElement("img", {
@@ -26,7 +33,7 @@ function createCharacter({ name, imgSrc, status, species }) {
   });
   const flipcardBack = createElement("div", {
     className: "flipcard-back",
-    children: [title, lifestatus, type],
+    children: [title, lifestatusDef, lifestatus, typeDef, type],
   });
   const flipcardInner = createElement("div", {
     className: "flipcard-inner",
