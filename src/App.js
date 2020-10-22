@@ -49,6 +49,15 @@ function App() {
     className: "container",
     children: [header, searchBar, main, loadMoreBtn],
   });
+
+  //infiniteScroll
+  window.addEventListener("scroll", () => {
+    const offsetY =
+      loadMoreBtn.offsetParent.offsetHeight - window.innerHeight - 100;
+    if (offsetY < window.pageYOffset) {
+      loadMoreBtn.click();
+    }
+  });
   return container;
 }
 
