@@ -9,22 +9,23 @@ function createCharacter({ ...props }) {
   });
   const favoriteBtn = createElement("button", {
     className: "faveBtn",
-    children: [favoriteImg],
+
     onclick: () => {
       let currentFavorites = JSON.parse(
         localStorage.getItem("favorites") || "[]"
       );
-      const isFavorite = currentFavorites.includes(name);
+      const isFavorite = currentFavorites.includes(props.name);
       if (isFavorite) {
         currentFavorites = currentFavorites.filter(
-          (favorite) => favorite !== name
+          (favorite) => favorite !== props.name
         );
       } else {
-        currentFavorites.push(name);
+        currentFavorites.push(props.name);
       }
       localStorage.setItem("favorites", JSON.stringify(currentFavorites));
       favoriteImg.src = !isFavorite ? FaveActive : FaveInactive;
     },
+    children: [favoriteImg],
   });
 
   const title = createElement("p", {
