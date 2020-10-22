@@ -1,7 +1,9 @@
 .header {
-  height: 64px;
-  display: grid;
-  align-content: center;
-  text-align: center;
+  height: auto;
+  display: flex;
+  justify-content: center;
   background-color: burlywood;
+}
+.header h1 {
+  font-size: 3rem;
 }

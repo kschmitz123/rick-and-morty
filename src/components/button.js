@@ -3,7 +3,6 @@ import "./button.css";
 
 function Button(props) {
   const loadMoreBtn = createElement("button", {
-    innerText: "Load more",
     className: "button",
     ...props,
   });

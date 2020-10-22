@@ -54,6 +54,7 @@
   font-weight: bold;
 }
 .character__type,
-.character__status {
+.character__status,
+.character__origin {
   color: purple;
 }

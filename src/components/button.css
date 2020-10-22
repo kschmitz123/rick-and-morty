@@ -15,3 +15,14 @@
 .button:active {
   background-color: khaki;
 }
+
+.upButton {
+  position: fixed;
+  right: 20px;
+  bottom: 50px;
+  border-radius: 10px;
+  opacity: 30%;
+}
+.upButton:hover {
+  opacity: 100%;
+}
