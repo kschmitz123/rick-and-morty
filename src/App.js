@@ -46,6 +46,7 @@ function App() {
 
   loadCharacters();
   const container = createElement("div", {
+    className: "container",
     children: [header, searchBar, main, loadMoreBtn],
   });
   return container;
