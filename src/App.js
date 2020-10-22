@@ -33,8 +33,9 @@ function App() {
       })
     );
     main.append(...characterElements);
-    loadMoreBtn.disabled = !characters.info.next;
     nextPage = characters.info.next?.match(/\d+/)[0];
+    loadMoreBtn.disabled = !characters.info.next;
+    lastName = name;
   }
   const searchBar = Search({
     onchange: (value) => {
