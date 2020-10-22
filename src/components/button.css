@@ -1,0 +1,17 @@
+.button {
+  padding: 0.7rem;
+  background-color: burlywood;
+  border: 1px solid black;
+  border-radius: 15px;
+  width: 200px;
+}
+.button:disabled {
+  display: none;
+}
+.button:hover {
+  box-shadow: 2px 2px 4px black;
+  transform: scale(1.1);
+}
+.button:active {
+  background-color: khaki;
+}

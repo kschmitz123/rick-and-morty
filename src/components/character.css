@@ -2,7 +2,6 @@
   display: flex;
   flex-wrap: wrap;
   padding: 10px 10px;
-  max-width: 1000px;
   justify-content: space-evenly;
 }
 .flipcard {
