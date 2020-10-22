@@ -30,6 +30,7 @@ function App() {
         imgSrc: character.image,
         status: character.status,
         species: character.species,
+        origin: character.origin,
       })
     );
     main.append(...characterElements);

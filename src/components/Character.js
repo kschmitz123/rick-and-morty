@@ -1,18 +1,25 @@
 import "./character.css";
 import { createElement } from "../utils/elements";
 
-function createCharacter({ name, imgSrc, status, species }) {
+function createCharacter({ ...props }) {
   const title = createElement("p", {
     className: "character__name",
-    innerText: "Name: " + name,
+    innerText: "Name: " + props.name,
   });
   const lifestatus = createElement("p", {
-    innerText: status,
+    innerText: props.status,
   });
   const type = createElement("p", {
-    innerText: species,
+    innerText: props.species,
+  });
+  const place = createElement("p", {
+    innerText: props.origin.name,
   });
 
+  const placeDef = createElement("p", {
+    className: "character__origin",
+    innerText: "Origin: ",
+  });
   const lifestatusDef = createElement("p", {
     className: "character__status",
     innerText: "Status: ",
@@ -24,8 +31,8 @@ function createCharacter({ name, imgSrc, status, species }) {
 
   const avatar = createElement("img", {
     className: "character__img",
-    src: imgSrc,
-    alt: name,
+    src: props.imgSrc,
+    alt: props.name,
   });
   const flipcardFront = createElement("div", {
     className: "flipcard-front",
@@ -33,7 +40,15 @@ function createCharacter({ name, imgSrc, status, species }) {
   });
   const flipcardBack = createElement("div", {
     className: "flipcard-back",
-    children: [title, lifestatusDef, lifestatus, typeDef, type],
+    children: [
+      title,
+      lifestatusDef,
+      lifestatus,
+      typeDef,
+      type,
+      placeDef,
+      place,
+    ],
   });
   const flipcardInner = createElement("div", {
     className: "flipcard-inner",
