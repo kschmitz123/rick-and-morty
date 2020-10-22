@@ -5,17 +5,26 @@ import createCharacter from "./components/Character";
 // import { getCharacterByID } from "./utils/api";
 import { getAllCharacters } from "./utils/api";
 import Search from "./components/Search";
+import Button from "./components/button";
 
 function App() {
+  let nextPage = null;
+  let lastName = null;
+
   const header = Header();
 
   const main = createElement("main", {
     className: "main",
   });
+  const loadMoreBtn = Button({
+    onclick: () => {
+      loadCharacters(lastName, nextPage);
+    },
+  });
 
-  async function loadCharacters(name) {
-    const characters = await getAllCharacters(name);
-    const characterElements = characters.map((character) =>
+  async function loadCharacters(name, page) {
+    const characters = await getAllCharacters(name, page);
+    const characterElements = characters.results.map((character) =>
       createCharacter({
         name: character.name,
         imgSrc: character.image,
@@ -23,17 +32,20 @@ function App() {
         species: character.species,
       })
     );
-    main.innerHTML = "";
     main.append(...characterElements);
+    loadMoreBtn.disabled = !characters.info.next;
+    nextPage = characters.info.next?.match(/\d+/)[0];
   }
-
   const searchBar = Search({
-    onchange: (value) => loadCharacters(value),
+    onchange: (value) => {
+      main.innerHTML = "";
+      loadCharacters(value);
+    },
   });
 
   loadCharacters();
   const container = createElement("div", {
-    children: [header, searchBar, main],
+    children: [header, searchBar, main, loadMoreBtn],
   });
   return container;
 }
