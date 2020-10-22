@@ -17,11 +17,19 @@ function App() {
     className: "main",
   });
   const loadMoreBtn = Button({
+    innerText: "Load more",
     onclick: () => {
       loadCharacters(lastName, nextPage);
     },
   });
-
+  const UpButton = Button({
+    className: "upButton",
+    innerText: "⬆UP",
+  });
+  const scrollUp = createElement("a", {
+    href: "#",
+    children: [UpButton],
+  });
   async function loadCharacters(name, page) {
     const characters = await getAllCharacters(name, page);
     const characterElements = characters.results.map((character) =>
@@ -48,7 +56,7 @@ function App() {
   loadCharacters();
   const container = createElement("div", {
     className: "container",
-    children: [header, searchBar, main, loadMoreBtn],
+    children: [header, scrollUp, searchBar, main, loadMoreBtn],
   });
 
   //infiniteScroll
