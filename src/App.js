@@ -32,6 +32,7 @@ function App() {
   });
   async function loadCharacters(name, page) {
     const characters = await getAllCharacters(name, page);
+    const favorites = JSON.parse(localStorage.getItem("favorites") || "[]");
     const characterElements = characters.results.map((character) =>
       createCharacter({
         name: character.name,
@@ -39,6 +40,7 @@ function App() {
         status: character.status,
         species: character.species,
         origin: character.origin,
+        isFavorite: favorites.includes(character.name),
       })
     );
     main.append(...characterElements, scrollUp);

@@ -1,10 +1,36 @@
 import "./character.css";
 import { createElement } from "../utils/elements";
+import FaveActive from "../assets/star-active.svg";
+import FaveInactive from "../assets/star-inactive.svg";
 
 function createCharacter({ ...props }) {
+  const favoriteImg = createElement("img", {
+    src: props.isFavorite ? FaveActive : FaveInactive,
+  });
+  const favoriteBtn = createElement("button", {
+    className: "faveBtn",
+    children: [favoriteImg],
+    onclick: () => {
+      let currentFavorites = JSON.parse(
+        localStorage.getItem("favorites") || "[]"
+      );
+      const isFavorite = currentFavorites.includes(name);
+      if (isFavorite) {
+        currentFavorites = currentFavorites.filter(
+          (favorite) => favorite !== name
+        );
+      } else {
+        currentFavorites.push(name);
+      }
+      localStorage.setItem("favorites", JSON.stringify(currentFavorites));
+      favoriteImg.src = !isFavorite ? FaveActive : FaveInactive;
+    },
+  });
+
   const title = createElement("p", {
     className: "character__name",
     innerText: "Name: " + props.name,
+    children: [favoriteBtn],
   });
   const lifestatus = createElement("p", {
     innerText: props.status,
@@ -59,6 +85,10 @@ function createCharacter({ ...props }) {
     className: "flipcard",
     children: [flipcardInner],
   });
-  return flipcard;
+  const container = createElement("div", {
+    className: "container",
+    children: [title, flipcard],
+  });
+  return container;
 }
 export default createCharacter;
