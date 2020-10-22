@@ -58,3 +58,7 @@
 .character__origin {
   color: purple;
 }
+.faveBtn {
+  border: none;
+  background: none;
+}
