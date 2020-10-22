@@ -41,7 +41,7 @@ function App() {
         origin: character.origin,
       })
     );
-    main.append(...characterElements);
+    main.append(...characterElements, scrollUp);
     nextPage = characters.info.next?.match(/\d+/)[0];
     loadMoreBtn.disabled = !characters.info.next;
     lastName = name;
@@ -56,7 +56,7 @@ function App() {
   loadCharacters();
   const container = createElement("div", {
     className: "container",
-    children: [header, scrollUp, searchBar, main, loadMoreBtn],
+    children: [header, searchBar, main, loadMoreBtn],
   });
 
   //infiniteScroll
